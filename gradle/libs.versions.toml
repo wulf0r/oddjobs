@@ -28,3 +28,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 jooq-codegen = { id = "org.jooq.jooq-codegen-gradle", version.ref = "jooq" }
 flyway = { id = "org.flywaydb.flyway", version.ref = "flyway" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }

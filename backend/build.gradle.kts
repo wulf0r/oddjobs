@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.flyway)
     alias(libs.plugins.jooq.codegen)
+    alias(libs.plugins.kotlin.spring)
 }
 
 java {

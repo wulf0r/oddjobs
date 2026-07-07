@@ -68,8 +68,12 @@ fi
 run_logged COMPILE_PID "gradle-continuous-compile-processresources" \
   gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
 
+echo "Waiting for background build to start ..."
+sleep 15s
+
 run_logged BOOT_PID "gradle-bootstrap-bootRun" \
   gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
+
 
 run_logged FRONTEND_PID "pnpm-frontend-dev" \
   pnpm --dir frontend dev --host 0.0.0.0 --port "$VITE_PORT" --strictPort
