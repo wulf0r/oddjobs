@@ -48,6 +48,8 @@ services:
       - .:/workspace/oddjobs
       - oddjobs-gradle-home:/home/oddjobs/.gradle
       - oddjobs-corepack-home:/home/oddjobs/.cache/corepack
+    tmpfs:
+      - /workspace/oddjobs/.gradle:uid=1000,gid=1000,mode=0775
     init: true
 
 volumes:

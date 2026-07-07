@@ -68,10 +68,10 @@ Compose starts:
 - Vite on <http://localhost:9992>.
 - A plain-text combined process log on <http://localhost:9994>.
 
-The Oddjobs project directory is bind-mounted at `/workspace/oddjobs` inside the dev container. On startup the dev container waits for PostgreSQL, runs `pnpm install --frozen-lockfile`, runs Gradle bootstrap with the global `gradle` binary, then starts. The bootstrap task assembles shared artifacts and stages the npm package, but intentionally does not run tests:
+The Oddjobs project directory is bind-mounted at `/workspace/oddjobs` inside the dev container. Compose overlays `/workspace/oddjobs/.gradle` with container-local tmpfs so project-cache locks are not shared with the host and disappear when the container stops. On startup the dev container waits for PostgreSQL, runs `pnpm install --frozen-lockfile`, runs Gradle bootstrap with the global `gradle` binary, then starts. The bootstrap task assembles shared artifacts and stages the npm package, but intentionally does not run tests:
 
-- `gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous`
-- `gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun`
+- `gradle --no-daemon --project-cache-dir /tmp/oddjobs-gradle-project-cache/watch -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous`
+- `gradle --no-daemon --project-cache-dir /tmp/oddjobs-gradle-project-cache/boot -Poddjobs.skipDbUp=true bootstrap :backend:bootRun`
 - `pnpm --dir frontend dev --host 0.0.0.0 --port 9992 --strictPort`
 
 All process output is appended to `./docker/dev/container.log` and served as `text/plain` on port `9994`.

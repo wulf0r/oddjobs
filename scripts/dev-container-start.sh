@@ -9,7 +9,9 @@ DB_NAME="${ODDJOBS_DB_NAME:-helloworld}"
 SPRING_PORT="${SERVER_PORT:-9991}"
 VITE_PORT="${VITE_PORT:-9992}"
 
-mkdir -p "$(dirname "$LOG_FILE")" /home/oddjobs/.gradle /home/oddjobs/.cache
+GRADLE_PROJECT_CACHE_ROOT="${GRADLE_PROJECT_CACHE_ROOT:-/tmp/oddjobs-gradle-project-cache}"
+
+mkdir -p "$(dirname "$LOG_FILE")" /home/oddjobs/.gradle /home/oddjobs/.cache "$GRADLE_PROJECT_CACHE_ROOT"
 : > "$LOG_FILE"
 
 log() {
@@ -60,19 +62,19 @@ if ! pnpm install --frozen-lockfile >> "$LOG_FILE" 2>&1; then
 fi
 
 log "running one-time Gradle bootstrap with global Gradle $(gradle --version | sed -n '3p')"
-if ! gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap >> "$LOG_FILE" 2>&1; then
+if ! gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/bootstrap" -Poddjobs.skipDbUp=true bootstrap >> "$LOG_FILE" 2>&1; then
   log "Gradle bootstrap failed; keeping log server alive for inspection"
   wait "$LOG_SERVER_PID"
 fi
 
 run_logged COMPILE_PID "gradle-continuous-compile-processresources" \
-  gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
+  gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/watch" -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
 
 echo "Waiting for background build to start ..."
 sleep 15s
 
 run_logged BOOT_PID "gradle-bootstrap-bootRun" \
-  gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
+  gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/boot" -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
 
 
 run_logged FRONTEND_PID "pnpm-frontend-dev" \
