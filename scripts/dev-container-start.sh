@@ -17,8 +17,9 @@ log() {
 }
 
 run_logged() {
-  local name="$1"
-  shift
+  local __pid_var="$1"
+  local name="$2"
+  shift 2
   log "starting ${name}: $*"
   {
     printf '\n===== %s started at %s =====\n' "$name" "$(date -Iseconds)"
@@ -27,7 +28,7 @@ run_logged() {
     printf '===== %s exited with status %s at %s =====\n' "$name" "$status" "$(date -Iseconds)"
     exit "$status"
   } >> "$LOG_FILE" 2>&1 &
-  echo $!
+  printf -v "$__pid_var" '%s' "$!"
 }
 
 wait_for_postgres() {
@@ -64,14 +65,14 @@ if ! gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap >> "$LOG_FILE" 2>&1; t
   wait "$LOG_SERVER_PID"
 fi
 
-COMPILE_PID=$(run_logged "gradle-continuous-compile-processresources" \
-  gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous)
+run_logged COMPILE_PID "gradle-continuous-compile-processresources" \
+  gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
 
-BOOT_PID=$(run_logged "gradle-bootstrap-bootRun" \
-  gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun)
+run_logged BOOT_PID "gradle-bootstrap-bootRun" \
+  gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
 
-FRONTEND_PID=$(run_logged "pnpm-frontend-dev" \
-  pnpm --dir frontend dev --host 0.0.0.0 --port "$VITE_PORT" --strictPort)
+run_logged FRONTEND_PID "pnpm-frontend-dev" \
+  pnpm --dir frontend dev --host 0.0.0.0 --port "$VITE_PORT" --strictPort
 
 shutdown() {
   log "shutting down dev processes"
