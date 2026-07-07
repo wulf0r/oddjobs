@@ -68,9 +68,9 @@ if ! gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/bootstra
 fi
 
 run_logged COMPILE_PID "gradle-continuous-compile-processresources" \
-  gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/watch" -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
+  gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
 
-echo "Waiting for background build to start ..."
+log "Waiting for background build to start ..."
 sleep 15s
 
 run_logged BOOT_PID "gradle-bootstrap-bootRun" \
