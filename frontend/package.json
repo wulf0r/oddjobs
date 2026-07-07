@@ -9,7 +9,7 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
-    "@example/shared": "workspace:*",
+    "@oddjobs/shared": "workspace:*",
     "vue": "3.5.39"
   },
   "devDependencies": {

@@ -38,7 +38,7 @@ Repository Interface
 Serialization Contract
 ```
 
-The backend uses generated jOOQ metadata from the migrated PostgreSQL schema. The frontend imports `@example/shared` from the pnpm workspace and does not duplicate DTOs manually.
+The backend uses generated jOOQ metadata from the migrated PostgreSQL schema. The frontend imports `@oddjobs/shared` from the pnpm workspace and does not duplicate DTOs manually.
 
 ## Bootstrap
 

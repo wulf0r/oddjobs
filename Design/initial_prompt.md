@@ -1,7 +1,7 @@
-# Auftrag: Erstelle ein vollständiges Kotlin/Spring/jOOQ/Vue/Kotlin-MPP-Monorepo
+# Auftrag: Erstelle ein vollstï¿½ndiges Kotlin/Spring/jOOQ/Vue/Kotlin-MPP-Monorepo
 
 Der Pojektname is Oddjobs. Base packe name sollte com.oddjobs sein.
-Das Projekt sollte self contained laufen, z.b. mit einem Befehl innerhalb eines Docker Containers. Sollte dies nicht möglich sein, bitte nachdrücklich darüber informieren.
+Das Projekt sollte self contained laufen, z.b. mit einem Befehl innerhalb eines Docker Containers. Sollte dies nicht mï¿½glich sein, bitte nachdrï¿½cklich darï¿½ber informieren.
 
 Du bist ein Senior Staff Software Engineer mit tiefgehender Erfahrung in:
 
@@ -24,23 +24,23 @@ Du bist ein Senior Staff Software Engineer mit tiefgehender Erfahrung in:
 
 ## Arbeitsmodus
 
-Erstelle im aktuellen Arbeitsverzeichnis ein **vollständig lauffähiges Projekt**.
+Erstelle im aktuellen Arbeitsverzeichnis ein **vollstï¿½ndig lauffï¿½higes Projekt**.
 
 Wichtig:
 
 * Liefere nicht nur einen Plan.
 * Liefere nicht nur Code-Snippets.
-* Lege tatsächlich alle benötigten Dateien und Verzeichnisse an.
-* Führe Builds und Tests tatsächlich aus.
+* Lege tatsï¿½chlich alle benï¿½tigten Dateien und Verzeichnisse an.
+* Fï¿½hre Builds und Tests tatsï¿½chlich aus.
 * Behebe Build-, Compiler-, Typ- und Laufzeitfehler.
 * Stoppe nicht beim ersten Fehler.
-* Prüfe insbesondere die reale Kotlin/JS-Ausgabestruktur und passe das npm-Staging daran an.
+* Prï¿½fe insbesondere die reale Kotlin/JS-Ausgabestruktur und passe das npm-Staging daran an.
 * Erfinde keine Gradle-Tasks oder Kotlin/JS-Output-Pfade.
-* Nutze `./gradlew ... tasks` und reale Build-Ausgaben, falls Tasknamen oder Output-Pfade verifiziert werden müssen.
-* Das Endergebnis muss reproduzierbar und möglichst self-contained sein.
-* Frage nicht nach Bestätigung, sondern treffe vernünftige Entscheidungen innerhalb der folgenden Vorgaben.
-* Ändere die festgelegten Architekturentscheidungen nicht stillschweigend.
-* Falls eine technische Einschränkung eine minimale Abweichung erzwingt, dokumentiere sie in einem ADR und im Abschlussbericht.
+* Nutze `./gradlew ... tasks` und reale Build-Ausgaben, falls Tasknamen oder Output-Pfade verifiziert werden mï¿½ssen.
+* Das Endergebnis muss reproduzierbar und mï¿½glichst self-contained sein.
+* Frage nicht nach Bestï¿½tigung, sondern treffe vernï¿½nftige Entscheidungen innerhalb der folgenden Vorgaben.
+* ï¿½ndere die festgelegten Architekturentscheidungen nicht stillschweigend.
+* Falls eine technische Einschrï¿½nkung eine minimale Abweichung erzwingt, dokumentiere sie in einem ADR und im Abschlussbericht.
 
 ---
 
@@ -62,7 +62,7 @@ Erstelle ein Monorepo mit:
 12. TypeScript/Vue-Frontend
 13. npm-Consumption der Kotlin/JS-Library
 14. automatisch generierten TypeScript-Definitionen
-15. einer vollständigen „Hello World“-Vertikalscheibe
+15. einer vollstï¿½ndigen ï¿½Hello Worldï¿½-Vertikalscheibe
 16. Architekturentscheidungen als ADRs im Root-Verzeichnis `Design/`
 
 Das Projekt soll nicht nur kompilieren, sondern die Architektur praktisch demonstrieren.
@@ -71,7 +71,7 @@ Das Projekt soll nicht nur kompilieren, sondern die Architektur praktisch demons
 
 # 2. Verbindliche Versionsmatrix
 
-Verwende exakt folgende Baseline-Versionen, sofern nicht ausdrücklich anders angegeben:
+Verwende exakt folgende Baseline-Versionen, sofern nicht ausdrï¿½cklich anders angegeben:
 
 ## JVM / Kotlin / Build
 
@@ -94,7 +94,7 @@ Verwende exakt folgende Baseline-Versionen, sofern nicht ausdrücklich anders ang
 * Flyway: `12.4.0`
 * PostgreSQL Docker Image: `postgres:17.10-alpine`
 
-Runtime und Code Generator von jOOQ müssen dieselbe Version verwenden.
+Runtime und Code Generator von jOOQ mï¿½ssen dieselbe Version verwenden.
 
 ## Frontend
 
@@ -110,14 +110,14 @@ Verwende keine Beta-, RC- oder Snapshot-Versionen.
 
 Direkte Dependencies sollen exakt gepinnt werden, nicht mit unkontrollierten `latest`-Versionen.
 
-Spring-interne und sonstige transitive Dependencies sollen nach Möglichkeit durch Spring Boot 4.1.0 verwaltet werden. Überschreibe keine Spring-Framework-Versionen manuell.
+Spring-interne und sonstige transitive Dependencies sollen nach Mï¿½glichkeit durch Spring Boot 4.1.0 verwaltet werden. ï¿½berschreibe keine Spring-Framework-Versionen manuell.
 
-Beachte ausdrücklich:
+Beachte ausdrï¿½cklich:
 
-* Spring Boot 4.1.0 verwaltet standardmäßig eine ältere Kotlin-Version als 2.4.0.
+* Spring Boot 4.1.0 verwaltet standardmï¿½ï¿½ig eine ï¿½ltere Kotlin-Version als 2.4.0.
 * Dieses Projekt soll trotzdem bewusst Kotlin `2.4.0` verwenden.
-* Stelle sicher, dass Kotlin Compiler Plugin, Kotlin Serialization Compiler Plugin, Kotlin stdlib und Kotlin reflect konsistent mit Kotlin `2.4.0` aufgelöst werden.
-* Verifiziere die tatsächlich aufgelösten Dependency-Versionen.
+* Stelle sicher, dass Kotlin Compiler Plugin, Kotlin Serialization Compiler Plugin, Kotlin stdlib und Kotlin reflect konsistent mit Kotlin `2.4.0` aufgelï¿½st werden.
+* Verifiziere die tatsï¿½chlich aufgelï¿½sten Dependency-Versionen.
 
 ---
 
@@ -128,52 +128,52 @@ Erzeuge mindestens folgende Struktur:
 ```text
 .
 +-- Design/
-¦   +-- README.md
-¦   +-- 0001-monorepo-and-build-ownership.md
-¦   +-- 0002-generic-backend-packaging.md
-¦   +-- 0003-shared-kmp-api-dtos.md
-¦   +-- 0004-shared-suspend-repository-ports.md
-¦   +-- 0005-platform-specific-repository-adapters.md
-¦   +-- 0006-coroutines-jooq-jdbc-and-transactions.md
-¦   +-- 0007-flyway-database-first-jooq-codegen.md
-¦   +-- 0008-kotlin-js-npm-package-for-vue.md
-¦   +-- 0009-version-and-toolchain-baseline.md
-¦
+ï¿½   +-- README.md
+ï¿½   +-- 0001-monorepo-and-build-ownership.md
+ï¿½   +-- 0002-generic-backend-packaging.md
+ï¿½   +-- 0003-shared-kmp-api-dtos.md
+ï¿½   +-- 0004-shared-suspend-repository-ports.md
+ï¿½   +-- 0005-platform-specific-repository-adapters.md
+ï¿½   +-- 0006-coroutines-jooq-jdbc-and-transactions.md
+ï¿½   +-- 0007-flyway-database-first-jooq-codegen.md
+ï¿½   +-- 0008-kotlin-js-npm-package-for-vue.md
+ï¿½   +-- 0009-version-and-toolchain-baseline.md
+ï¿½
 +-- backend/
-¦   +-- build.gradle.kts
-¦   +-- src/
-¦       +-- main/
-¦       ¦   +-- kotlin/
-¦       ¦   +-- resources/
-¦       ¦       +-- db/migration/
-¦       +-- test/
-¦
+ï¿½   +-- build.gradle.kts
+ï¿½   +-- src/
+ï¿½       +-- main/
+ï¿½       ï¿½   +-- kotlin/
+ï¿½       ï¿½   +-- resources/
+ï¿½       ï¿½       +-- db/migration/
+ï¿½       +-- test/
+ï¿½
 +-- shared/
-¦   +-- build.gradle.kts
-¦   +-- src/
-¦       +-- commonMain/kotlin/
-¦       +-- commonTest/kotlin/
-¦       +-- jvmMain/kotlin/
-¦       +-- jvmTest/kotlin/
-¦       +-- jsMain/kotlin/
-¦       +-- jsTest/kotlin/
-¦
+ï¿½   +-- build.gradle.kts
+ï¿½   +-- src/
+ï¿½       +-- commonMain/kotlin/
+ï¿½       +-- commonTest/kotlin/
+ï¿½       +-- jvmMain/kotlin/
+ï¿½       +-- jvmTest/kotlin/
+ï¿½       +-- jsMain/kotlin/
+ï¿½       +-- jsTest/kotlin/
+ï¿½
 +-- frontend/
-¦   +-- package.json
-¦   +-- tsconfig.json
-¦   +-- vite.config.ts
-¦   +-- index.html
-¦   +-- src/
-¦
+ï¿½   +-- package.json
+ï¿½   +-- tsconfig.json
+ï¿½   +-- vite.config.ts
+ï¿½   +-- index.html
+ï¿½   +-- src/
+ï¿½
 +-- packages/
-¦   +-- shared/
-¦       +-- package.json
-¦       +-- dist/
-¦
+ï¿½   +-- shared/
+ï¿½       +-- package.json
+ï¿½       +-- dist/
+ï¿½
 +-- gradle/
-¦   +-- libs.versions.toml
-¦   +-- wrapper/
-¦
+ï¿½   +-- libs.versions.toml
+ï¿½   +-- wrapper/
+ï¿½
 +-- settings.gradle.kts
 +-- build.gradle.kts
 +-- gradle.properties
@@ -224,13 +224,13 @@ Gradle darf Kotlin bauen und das npm-Artefakt stagen.
 
 pnpm darf das Frontend bauen und das lokale Shared-Paket konsumieren.
 
-Keine unnötige vollständige Versteckung von pnpm hinter Gradle.
+Keine unnï¿½tige vollstï¿½ndige Versteckung von pnpm hinter Gradle.
 
 ---
 
 ## 4.2 Backend muss generisch/horizontal paketiert werden
 
-Das Backend darf ausdrücklich **nicht primär package-by-feature** strukturiert werden.
+Das Backend darf ausdrï¿½cklich **nicht primï¿½r package-by-feature** strukturiert werden.
 
 Verwende eine technisch generische, gut auffindbare Paketstruktur wie:
 
@@ -245,7 +245,7 @@ com.example.helloworld
 +-- Application.kt
 ```
 
-Für den Hello-World-Use-Case beispielsweise:
+Fï¿½r den Hello-World-Use-Case beispielsweise:
 
 ```text
 controller/
@@ -262,20 +262,20 @@ config/
     TimeConfig.kt
 ```
 
-Begründung:
+Begrï¿½ndung:
 
 * Entwickler sollen technische Rollen schnell finden.
-* Repositories gehören nach `repository`.
-* Services gehören nach `service`.
-* Controller gehören nach `controller`.
+* Repositories gehï¿½ren nach `repository`.
+* Services gehï¿½ren nach `service`.
+* Controller gehï¿½ren nach `controller`.
 
-Dokumentiere diese bewusste Entscheidung gegen primäres Feature-Packaging in ADR 0002.
+Dokumentiere diese bewusste Entscheidung gegen primï¿½res Feature-Packaging in ADR 0002.
 
 ---
 
 ## 4.3 DTOs werden zwischen Backend und Frontend geteilt
 
-DTOs dürfen nicht manuell in Kotlin und TypeScript dupliziert werden.
+DTOs dï¿½rfen nicht manuell in Kotlin und TypeScript dupliziert werden.
 
 Es darf insbesondere **keine manuell gepflegte TypeScript-Kopie** eines Kotlin-API-DTOs geben.
 
@@ -294,7 +294,7 @@ Dieser Typ soll:
 * im Backend verwendet werden
 * als REST Response verwendet werden
 * in Kotlin/JS verwendet werden
-* TypeScript-seitig über generierte `.d.ts` sichtbar sein
+* TypeScript-seitig ï¿½ber generierte `.d.ts` sichtbar sein
 
 Verwende:
 
@@ -305,7 +305,7 @@ Verwende:
 
 Dokumentiere in ADR 0003:
 
-* warum DTO-Sharing gewählt wurde
+* warum DTO-Sharing gewï¿½hlt wurde
 * Vermeidung von Contract-Drift
 * Vermeidung manueller Duplizierung
 * Compile-Time-Kopplung als bewusst akzeptierte Konsequenz
@@ -314,7 +314,7 @@ Dokumentiere in ADR 0003:
 
 ## 4.4 JSON ist nicht automatisch eine Kotlin-Klasseninstanz
 
-Berücksichtige ausdrücklich:
+Berï¿½cksichtige ausdrï¿½cklich:
 
 Ein Ergebnis von:
 
@@ -324,9 +324,9 @@ await response.json()
 
 ist ein JavaScript Plain Object und nicht automatisch eine Runtime-Instanz einer exportierten Kotlin-Klasse.
 
-Löse dieses Problem nicht durch DTO-Duplizierung.
+Lï¿½se dieses Problem nicht durch DTO-Duplizierung.
 
-Löse es stattdessen durch zentrale Deserialisierung in Kotlin/JS.
+Lï¿½se es stattdessen durch zentrale Deserialisierung in Kotlin/JS.
 
 Die JS-spezifische HTTP-Repository-Implementierung soll:
 
@@ -342,7 +342,7 @@ val dto = ApiJson.decodeFromString<HelloResponse>(
 )
 ```
 
-Definiere nach Möglichkeit eine gemeinsame JSON-Konfiguration im Shared-Modul, beispielsweise:
+Definiere nach Mï¿½glichkeit eine gemeinsame JSON-Konfiguration im Shared-Modul, beispielsweise:
 
 ```kotlin
 object ApiJson {
@@ -356,19 +356,19 @@ object ApiJson {
 
 Verwende dieselbe oder semantisch identische Konfiguration auf JVM und JS.
 
-Das Backend soll Spring Boot 4.1.0 mit Kotlinx Serialization verwenden, vorzugsweise über:
+Das Backend soll Spring Boot 4.1.0 mit Kotlinx Serialization verwenden, vorzugsweise ï¿½ber:
 
 ```text
 spring-boot-starter-kotlinx-serialization-json
 ```
 
-Stelle durch Tests sicher, dass dieselben Shared DTOs korrekt als REST JSON serialisiert und im JS-Target wieder deserialisiert werden können.
+Stelle durch Tests sicher, dass dieselben Shared DTOs korrekt als REST JSON serialisiert und im JS-Target wieder deserialisiert werden kï¿½nnen.
 
 ---
 
 # 5. Shared Kotlin Multiplatform Modul
 
-Das Modul `shared` muss mindestens Targets für:
+Das Modul `shared` muss mindestens Targets fï¿½r:
 
 * JVM
 * JavaScript Browser
@@ -387,7 +387,7 @@ Konfiguriere:
 * TypeScript Definition Generation
 * Java 25 JVM Toolchain
 
-Sinngemäß:
+Sinngemï¿½ï¿½:
 
 ```kotlin
 kotlin {
@@ -407,7 +407,7 @@ kotlin {
 
 Verwende reale Kotlin-2.4-DSL-Syntax.
 
-Konfiguriere für Kotlin/JS ausdrücklich:
+Konfiguriere fï¿½r Kotlin/JS ausdrï¿½cklich:
 
 ```text
 -Xenable-suspend-function-exporting
@@ -430,7 +430,7 @@ com.example.shared
 +-- serialization/
 ```
 
-Optional darf zusätzlich gemeinsame, wirklich plattformneutrale Business-Logik unter:
+Optional darf zusï¿½tzlich gemeinsame, wirklich plattformneutrale Business-Logik unter:
 
 ```text
 service/
@@ -440,7 +440,7 @@ domain/
 
 liegen.
 
-Füge aber keinen gemeinsamen Service nur aus architektonischer Symmetrie hinzu.
+Fï¿½ge aber keinen gemeinsamen Service nur aus architektonischer Symmetrie hinzu.
 
 Shared bedeutet:
 
@@ -471,9 +471,9 @@ Vorgaben:
 * kein jOOQ
 * kein JDBC
 * kein Browser API
-* keine `expect/actual`-Lösung
-* Dependency Injection über normale Konstruktoren
-* Methoden für I/O standardmäßig `suspend`
+* keine `expect/actual`-Lï¿½sung
+* Dependency Injection ï¿½ber normale Konstruktoren
+* Methoden fï¿½r I/O standardmï¿½ï¿½ig `suspend`
 
 Das Interface ist ein gemeinsamer Port.
 
@@ -481,7 +481,7 @@ Dokumentiere diese Entscheidung in ADR 0004.
 
 ---
 
-# 7. Plattformabhängige Repository-Implementierungen
+# 7. Plattformabhï¿½ngige Repository-Implementierungen
 
 ## 7.1 JVM
 
@@ -534,7 +534,7 @@ Dokumentiere diese Adapterentscheidung in ADR 0005.
 
 # 8. Async- und Coroutine-Architektur
 
-Repository-Methoden sollen standardmäßig `suspend` sein.
+Repository-Methoden sollen standardmï¿½ï¿½ig `suspend` sein.
 
 Beispiel:
 
@@ -550,11 +550,11 @@ Dokumentiere und implementiere folgende Regeln:
 
 Ein `suspend fun` macht JDBC nicht non-blocking.
 
-jOOQ über JDBC bleibt blockierend.
+jOOQ ï¿½ber JDBC bleibt blockierend.
 
 ## 8.2 JS-Seite
 
-Auf JS-Seite ist die Abbildung natürlich:
+Auf JS-Seite ist die Abbildung natï¿½rlich:
 
 ```text
 suspend
@@ -566,7 +566,7 @@ Promise
 await
 ```
 
-Die exportierte JS-Fassade soll aus TypeScript ungefähr so konsumierbar sein:
+Die exportierte JS-Fassade soll aus TypeScript ungefï¿½hr so konsumierbar sein:
 
 ```typescript
 const response = await helloApi.loadHello()
@@ -574,13 +574,13 @@ const response = await helloApi.loadHello()
 
 Die generierte `.d.ts`-Signatur soll Promise-basiert sein.
 
-Prüfe die tatsächlich generierte Signatur.
+Prï¿½fe die tatsï¿½chlich generierte Signatur.
 
 ## 8.3 JVM-Seite
 
-JDBC-/jOOQ-Aufrufe dürfen nicht fälschlich als non-blocking dargestellt werden.
+JDBC-/jOOQ-Aufrufe dï¿½rfen nicht fï¿½lschlich als non-blocking dargestellt werden.
 
-Verwende für den einfachen Hello-World-Read einen bewusst begrenzten Blocking-I/O-Kontext.
+Verwende fï¿½r den einfachen Hello-World-Read einen bewusst begrenzten Blocking-I/O-Kontext.
 
 Beispielkonzept:
 
@@ -589,9 +589,9 @@ val dbDispatcher =
     Dispatchers.IO.limitedParallelism(16)
 ```
 
-Die konkrete Parallelität darf sinnvoll gewählt werden, muss aber dokumentiert sein.
+Die konkrete Parallelitï¿½t darf sinnvoll gewï¿½hlt werden, muss aber dokumentiert sein.
 
-Jooq Repository sinngemäß:
+Jooq Repository sinngemï¿½ï¿½:
 
 ```kotlin
 override suspend fun getHello(): HelloResponse =
@@ -604,13 +604,13 @@ Konfiguriere den Dispatcher zentral unter `config/`.
 
 ## 8.4 Transaktionsregel
 
-Dokumentiere ausdrücklich:
+Dokumentiere ausdrï¿½cklich:
 
-* nicht blind überall `withContext(Dispatchers.IO)` verteilen
-* nicht unkontrolliert Dispatcher wechseln, während eine imperative JDBC-Transaktion aktiv ist
+* nicht blind ï¿½berall `withContext(Dispatchers.IO)` verteilen
+* nicht unkontrolliert Dispatcher wechseln, wï¿½hrend eine imperative JDBC-Transaktion aktiv ist
 * komplexe atomare Operationen auf grober fachlicher Ebene modellieren
 
-Beispiel für spätere komplexe Operationen:
+Beispiel fï¿½r spï¿½tere komplexe Operationen:
 
 Nicht:
 
@@ -633,9 +633,9 @@ backend:
   eine DB Transaction
 ```
 
-Für das Hello-World-Beispiel ist nur ein einfacher Read erforderlich.
+Fï¿½r das Hello-World-Beispiel ist nur ein einfacher Read erforderlich.
 
-Dokumentiere diese Entscheidung ausführlich in:
+Dokumentiere diese Entscheidung ausfï¿½hrlich in:
 
 ```text
 Design/0006-coroutines-jooq-jdbc-and-transactions.md
@@ -645,7 +645,7 @@ Design/0006-coroutines-jooq-jdbc-and-transactions.md
 
 # 9. Java-25-Toolchain
 
-Konfiguriere Java 25 vollständig.
+Konfiguriere Java 25 vollstï¿½ndig.
 
 ## 9.1 Foojay Toolchain Resolver
 
@@ -659,7 +659,7 @@ plugins {
 
 ## 9.2 JVM Toolchain
 
-Für JVM-Module:
+Fï¿½r JVM-Module:
 
 ```kotlin
 java {
@@ -669,7 +669,7 @@ java {
 }
 ```
 
-Für Kotlin:
+Fï¿½r Kotlin:
 
 ```kotlin
 kotlin {
@@ -688,7 +688,7 @@ Stelle sicher, dass:
 
 konsistent Java 25 verwenden.
 
-Konfiguriere nach Möglichkeit zusätzlich die Gradle Daemon JVM Criteria für Java 25, sofern dies mit Gradle 9.5 sauber möglich ist.
+Konfiguriere nach Mï¿½glichkeit zusï¿½tzlich die Gradle Daemon JVM Criteria fï¿½r Java 25, sofern dies mit Gradle 9.5 sauber mï¿½glich ist.
 
 Verifiziere mit realen Tasks und Build-Ausgaben.
 
@@ -702,7 +702,7 @@ Verwende:
 Gradle Wrapper 9.5.0
 ```
 
-Erzeuge vollständig:
+Erzeuge vollstï¿½ndig:
 
 ```text
 gradlew
@@ -728,7 +728,7 @@ gradle/libs.versions.toml
 
 als zentrale Version Catalog Datei.
 
-Keine unnötige Versionsduplizierung über verschiedene Build-Dateien.
+Keine unnï¿½tige Versionsduplizierung ï¿½ber verschiedene Build-Dateien.
 
 ---
 
@@ -736,7 +736,7 @@ Keine unnötige Versionsduplizierung über verschiedene Build-Dateien.
 
 Verwende Spring Boot `4.1.0`.
 
-Mindestens benötigte Backend-Funktionalität:
+Mindestens benï¿½tigte Backend-Funktionalitï¿½t:
 
 * Spring MVC
 * Kotlin
@@ -757,7 +757,7 @@ spring-boot-starter-kotlinx-serialization-json
 spring-boot-starter-test
 ```
 
-Ergänze:
+Ergï¿½nze:
 
 ```text
 kotlin-reflect
@@ -767,7 +767,7 @@ PostgreSQL JDBC driver
 
 Verwende Spring Boot Dependency Management/BOM sinnvoll.
 
-Verifiziere insbesondere, dass Kotlin `2.4.0` nicht versehentlich durch Boot auf `2.3.x` zurückgezogen wird.
+Verifiziere insbesondere, dass Kotlin `2.4.0` nicht versehentlich durch Boot auf `2.3.x` zurï¿½ckgezogen wird.
 
 ---
 
@@ -789,9 +789,9 @@ Konfiguriere mindestens:
 * Port: `5432`
 * Healthcheck
 
-Nutze für lokale Entwicklung nachvollziehbare Default-Werte.
+Nutze fï¿½r lokale Entwicklung nachvollziehbare Default-Werte.
 
-Keine Produktionsgeheimnisse vortäuschen.
+Keine Produktionsgeheimnisse vortï¿½uschen.
 
 ---
 
@@ -806,7 +806,7 @@ backend/src/main/resources/db/migration/V001__create_hello_message.sql
 Migration:
 
 1. Tabelle `hello_message` erstellen
-2. mindestens einen Datensatz einfügen
+2. mindestens einen Datensatz einfï¿½gen
 
 Beispiel-Schema:
 
@@ -884,9 +884,9 @@ jooqCodegen
 compileKotlin
 ```
 
-oder eine technisch gleichwertige robuste Lösung.
+oder eine technisch gleichwertige robuste Lï¿½sung.
 
-Die jOOQ-Artefakte müssen aus dem tatsächlich migrierten PostgreSQL-Schema generiert werden.
+Die jOOQ-Artefakte mï¿½ssen aus dem tatsï¿½chlich migrierten PostgreSQL-Schema generiert werden.
 
 Keine handgeschriebenen Fake-jOOQ-Klassen.
 
@@ -917,11 +917,11 @@ Generiere mindestens:
 * Tables
 * Records
 
-Keine unnötigen DAOs oder POJOs, sofern sie für das Beispiel nicht gebraucht werden.
+Keine unnï¿½tigen DAOs oder POJOs, sofern sie fï¿½r das Beispiel nicht gebraucht werden.
 
 ## 14.3 Backend-Nutzung
 
-`JooqHelloRepository` muss tatsächlich auf die generierten Artefakte zugreifen.
+`JooqHelloRepository` muss tatsï¿½chlich auf die generierten Artefakte zugreifen.
 
 Beispielsweise konzeptionell:
 
@@ -947,7 +947,7 @@ Es implementiert das Shared Interface:
 HelloRepository
 ```
 
-Sinngemäß:
+Sinngemï¿½ï¿½:
 
 ```kotlin
 @Repository
@@ -975,7 +975,7 @@ class JooqHelloRepository(
 
 Nutze reale generierte jOOQ-Klassen.
 
-jOOQ Records dürfen die Repository-Grenze nicht verlassen.
+jOOQ Records dï¿½rfen die Repository-Grenze nicht verlassen.
 
 ---
 
@@ -992,12 +992,12 @@ Der Service:
 1. ruft das Shared `HelloRepository` auf
 2. liest damit die DB-basierte Nachricht
 3. macht die Antwort dynamisch
-4. fügt beispielsweise einen serverseitigen UTC-Zeitstempel hinzu
+4. fï¿½gt beispielsweise einen serverseitigen UTC-Zeitstempel hinzu
 
 Beispielresultat:
 
 ```text
-Hello World from database — 2026-07-07T12:34:56.123Z
+Hello World from database ï¿½ 2026-07-07T12:34:56.123Z
 ```
 
 Verwende einen injizierbaren:
@@ -1020,7 +1020,7 @@ class HelloService(
         val base = repository.getHello()
 
         return base.copy(
-            message = "${base.message} — ${Instant.now(clock)}"
+            message = "${base.message} ï¿½ ${Instant.now(clock)}"
         )
     }
 }
@@ -1064,7 +1064,7 @@ Erwartetes JSON:
 
 ```json
 {
-  "message": "Hello World from database — 2026-07-07T12:34:56.123Z"
+  "message": "Hello World from database ï¿½ 2026-07-07T12:34:56.123Z"
 }
 ```
 
@@ -1097,7 +1097,7 @@ Vorgaben:
 * mit Shared `ApiJson` dekodieren
 * kein TypeScript-Duplicate-DTO
 
-Sinngemäß:
+Sinngemï¿½ï¿½:
 
 ```kotlin
 class HttpHelloRepository(
@@ -1145,13 +1145,13 @@ class HelloApi(
 }
 ```
 
-Oder eine gleichwertige Factory-Lösung.
+Oder eine gleichwertige Factory-Lï¿½sung.
 
 Wichtig:
 
-* TypeScript soll keinen Kotlin-internen Dependency-Injection-Graph bauen müssen.
+* TypeScript soll keinen Kotlin-internen Dependency-Injection-Graph bauen mï¿½ssen.
 * Repository-Implementierung bleibt verborgen.
-* Die öffentliche JS-Grenze bleibt klein.
+* Die ï¿½ffentliche JS-Grenze bleibt klein.
 * `loadHello()` soll TypeScript-seitig als Promise konsumierbar sein.
 
 Erwartete Nutzung:
@@ -1193,14 +1193,14 @@ Frontend:
 ```json
 {
   "dependencies": {
-    "@example/shared": "workspace:*"
+    "@oddjobs/shared": "workspace:*"
   }
 }
 ```
 
 ## 20.2 Staging
 
-Kotlin/JS soll zunächst den realen JS-/TypeScript-Output erzeugen.
+Kotlin/JS soll zunï¿½chst den realen JS-/TypeScript-Output erzeugen.
 
 Danach soll ein Gradle Task, beispielsweise:
 
@@ -1208,7 +1208,7 @@ Danach soll ein Gradle Task, beispielsweise:
 :shared:stageNpmPackage
 ```
 
-den benötigten Output stabil nach:
+den benï¿½tigten Output stabil nach:
 
 ```text
 packages/shared/dist
@@ -1218,17 +1218,17 @@ stagen.
 
 Wichtig:
 
-* Ermittle den tatsächlichen Kotlin-2.4-Output-Pfad.
+* Ermittle den tatsï¿½chlichen Kotlin-2.4-Output-Pfad.
 * Hardcode keinen Pfad aus alten Tutorials, ohne ihn zu verifizieren.
 * Nutze reale Gradle Tasks.
-* Sorge dafür, dass JS und `.d.ts` gemeinsam gestaged werden.
-* Stelle sicher, dass `packages/shared/package.json` gültige ESM-Exports und Types-Einträge enthält.
+* Sorge dafï¿½r, dass JS und `.d.ts` gemeinsam gestaged werden.
+* Stelle sicher, dass `packages/shared/package.json` gï¿½ltige ESM-Exports und Types-Eintrï¿½ge enthï¿½lt.
 
 Beispielkonzept:
 
 ```json
 {
-  "name": "@example/shared",
+  "name": "@oddjobs/shared",
   "version": "0.0.0-local",
   "private": true,
   "type": "module",
@@ -1251,11 +1251,11 @@ Der Frontend-Build muss beweisen, dass das Package korrekt ist.
 
 Erstelle ein minimales Vue-3-TypeScript-Frontend.
 
-Versionen exakt gemäß Versionsmatrix.
+Versionen exakt gemï¿½ï¿½ Versionsmatrix.
 
-Kein unnötiger Router.
+Kein unnï¿½tiger Router.
 
-Kein unnötiges Pinia.
+Kein unnï¿½tiges Pinia.
 
 Keine UI-Library.
 
@@ -1269,12 +1269,12 @@ Die Startseite muss:
 4. das Backend aufrufen
 5. die dynamische Nachricht anzeigen
 6. einen Error-Zustand darstellen
-7. optional einen „Refresh“-Button anbieten
+7. optional einen ï¿½Refreshï¿½-Button anbieten
 
 Beispielkonzept:
 
 ```typescript
-import { HelloApi } from '@example/shared'
+import { HelloApi } from '@oddjobs/shared'
 
 const api = new HelloApi('/api')
 
@@ -1311,7 +1311,7 @@ http://localhost:8080
 
 proxied wird.
 
-Damit soll lokal keine unnötige CORS-Konfiguration erforderlich sein.
+Damit soll lokal keine unnï¿½tige CORS-Konfiguration erforderlich sein.
 
 Der Browser ruft auf:
 
@@ -1343,7 +1343,7 @@ Mindestens:
 }
 ```
 
-Füge sinnvolle Scripts hinzu, beispielsweise:
+Fï¿½ge sinnvolle Scripts hinzu, beispielsweise:
 
 ```text
 frontend:dev
@@ -1371,7 +1371,7 @@ jeweils mit:
 
 # 24. Self-contained Developer Experience
 
-Das Projekt soll möglichst self-contained sein.
+Das Projekt soll mï¿½glichst self-contained sein.
 
 Mindestens:
 
@@ -1381,7 +1381,7 @@ Mindestens:
 * Foojay Toolchain Auto-Provisioning
 * Node-Version gepinnt
 * pnpm-Version gepinnt
-* PostgreSQL über Docker Compose
+* PostgreSQL ï¿½ber Docker Compose
 * DB Credentials mit lokalen Defaults
 * keine externe manuelle DB-Vorbereitung
 * Flyway Migrationen im Repository
@@ -1399,9 +1399,9 @@ stageSharedNpmPackage
 bootstrap
 ```
 
-Die exakten Tasknamen dürfen angepasst werden.
+Die exakten Tasknamen dï¿½rfen angepasst werden.
 
-Wichtig ist die Funktionalität.
+Wichtig ist die Funktionalitï¿½t.
 
 Ein sinnvoller Bootstrap Flow soll dokumentiert sein.
 
@@ -1418,7 +1418,7 @@ Der Bootstrap muss:
 
 1. PostgreSQL starten bzw. sicherstellen
 2. auf DB Health warten
-3. Flyway ausführen
+3. Flyway ausfï¿½hren
 4. jOOQ generieren
 5. Shared JVM/JS kompilieren
 6. npm-Paket stagen
@@ -1427,11 +1427,11 @@ Wenn der Agent eine bessere robuste Reihenfolge implementiert, ist das erlaubt.
 
 ---
 
-# 25. Build-Abhängigkeiten und Docker
+# 25. Build-Abhï¿½ngigkeiten und Docker
 
 Vermeide Race Conditions.
 
-`docker compose up -d` allein reicht nicht, wenn anschließend sofort Flyway startet.
+`docker compose up -d` allein reicht nicht, wenn anschlieï¿½end sofort Flyway startet.
 
 Nutze:
 
@@ -1453,7 +1453,7 @@ Implementiere sinnvolle Tests.
 
 Mindestens:
 
-* JSON Serialization Roundtrip für `HelloResponse`
+* JSON Serialization Roundtrip fï¿½r `HelloResponse`
 * gemeinsame DTO-Verwendung
 
 ## 26.2 Backend Service
@@ -1463,11 +1463,11 @@ Teste `HelloService` mit:
 * Fake `HelloRepository`
 * Fixed `Clock`
 
-Erwartete Nachricht deterministisch prüfen.
+Erwartete Nachricht deterministisch prï¿½fen.
 
 ## 26.3 Backend Integration
 
-Mindestens ein Integrationstest soll prüfen:
+Mindestens ein Integrationstest soll prï¿½fen:
 
 ```text
 GET /api/hello
@@ -1480,7 +1480,7 @@ und sicherstellen:
 * DB-basierter Basisteil enthalten
 * dynamischer Teil enthalten
 
-Nutze bei Bedarf Testcontainers für PostgreSQL.
+Nutze bei Bedarf Testcontainers fï¿½r PostgreSQL.
 
 Verwende von Spring Boot verwaltete kompatible Test-Dependencies.
 
@@ -1490,7 +1490,7 @@ Stelle durch Build oder Integrationstest sicher:
 
 * generierte Tabellenklasse existiert
 * Repository kompiliert gegen generierte jOOQ-Artefakte
-* Query liest tatsächlich `hello_message`
+* Query liest tatsï¿½chlich `hello_message`
 
 ## 26.5 Frontend
 
@@ -1500,7 +1500,7 @@ Mindestens:
 * Vue Type Check
 * Production Build
 
-Diese Commands müssen erfolgreich sein:
+Diese Commands mï¿½ssen erfolgreich sein:
 
 ```bash
 pnpm --dir frontend type-check
@@ -1513,7 +1513,7 @@ oder gleichwertige Workspace-Commands.
 
 # 27. ADRs
 
-Alle Architekturentscheidungen müssen unmittelbar im Root-Verzeichnis:
+Alle Architekturentscheidungen mï¿½ssen unmittelbar im Root-Verzeichnis:
 
 ```text
 Design/
@@ -1521,7 +1521,7 @@ Design/
 
 dokumentiert werden.
 
-Verwende für jedes ADR mindestens:
+Verwende fï¿½r jedes ADR mindestens:
 
 ```text
 # ADR XXXX: Titel
@@ -1561,7 +1561,7 @@ Dokumentiere:
 * `repository`
 * `mapper`
 * `config`
-* bewusste Entscheidung gegen primäres package-by-feature
+* bewusste Entscheidung gegen primï¿½res package-by-feature
 
 ## ADR 0003: Shared KMP API DTOs
 
@@ -1573,7 +1573,7 @@ Dokumentiere:
 * keine manuelle TS-Duplizierung
 * Vermeidung von Contract Drift
 * JSON Plain Objects als bekanntes Interop-Thema
-* Lösung durch zentrale Deserialisierung
+* Lï¿½sung durch zentrale Deserialisierung
 
 ## ADR 0004: Shared Suspend Repository Ports
 
@@ -1584,7 +1584,7 @@ Dokumentiere:
 * `suspend`
 * kein `expect/actual`
 * DI
-* Fake-Repositories für Tests
+* Fake-Repositories fï¿½r Tests
 
 ## ADR 0005: Platform-specific Repository Adapters
 
@@ -1598,7 +1598,7 @@ Dokumentiere:
 
 ## ADR 0006: Coroutines, jOOQ, JDBC and Transactions
 
-Dokumentiere ausführlich:
+Dokumentiere ausfï¿½hrlich:
 
 * `suspend != non-blocking`
 * JDBC blockiert
@@ -1607,7 +1607,7 @@ Dokumentiere ausführlich:
 * experimenteller Suspend Export
 * Transaktionsgrenzen
 * keine naiven Multi-HTTP-Call-Transaktionen
-* coarse-grained server-side commands für atomare Operationen
+* coarse-grained server-side commands fï¿½r atomare Operationen
 
 ## ADR 0007: Flyway Database-first jOOQ Codegen
 
@@ -1652,7 +1652,7 @@ Dokumentiere:
 * Frontend-Versionen
 * warum Versionen bewusst gepinnt sind
 
-Erzeuge zusätzlich:
+Erzeuge zusï¿½tzlich:
 
 ```text
 Design/README.md
@@ -1662,7 +1662,7 @@ mit Index und Kurzbeschreibung aller ADRs.
 
 ---
 
-# 28. Architekturregeln, die nicht verletzt werden dürfen
+# 28. Architekturregeln, die nicht verletzt werden dï¿½rfen
 
 ## Verboten: DTO-Duplizierung
 
@@ -1671,12 +1671,12 @@ Nicht:
 ```text
 shared/HelloResponse.kt
 
-und zusätzlich
+und zusï¿½tzlich
 
 frontend/src/types/HelloResponse.ts
 ```
 
-## Verboten: jOOQ Record über Repository-Grenze
+## Verboten: jOOQ Record ï¿½ber Repository-Grenze
 
 Nicht:
 
@@ -1697,7 +1697,7 @@ class SharedService
 
 ## Verboten: Browser APIs in commonMain
 
-## Verboten: `expect/actual` nur für Repository-DI
+## Verboten: `expect/actual` nur fï¿½r Repository-DI
 
 Verwende normale Interfaces.
 
@@ -1718,7 +1718,7 @@ const dto =
 
 Das Hello Repository muss die generierten jOOQ-Metadaten verwenden.
 
-## Verboten: Package-by-feature im Backend als primäre Struktur
+## Verboten: Package-by-feature im Backend als primï¿½re Struktur
 
 Backend ist generisch nach technischer Rolle zu paketieren.
 
@@ -1732,19 +1732,19 @@ Mindestens:
 
 ## Voraussetzungen
 
-So wenige wie möglich.
+So wenige wie mï¿½glich.
 
-Erkläre:
+Erklï¿½re:
 
 * Docker
 * Node 24.18.0
 * pnpm 11.8.0
-* Gradle wird über Wrapper verwendet
-* JDK 25 wird über Toolchain bereitgestellt
+* Gradle wird ï¿½ber Wrapper verwendet
+* JDK 25 wird ï¿½ber Toolchain bereitgestellt
 
 ## Architektur
 
-Kurze Übersicht:
+Kurze ï¿½bersicht:
 
 ```text
 Vue/TS
@@ -1796,7 +1796,7 @@ Exakte Commands.
 
 ## jOOQ Codegen
 
-Erklären:
+Erklï¿½ren:
 
 * Migration
 * DB
@@ -1827,7 +1827,7 @@ liefert beispielsweise:
 
 ```json
 {
-  "message": "Hello World from database — 2026-07-07T12:34:56.123Z"
+  "message": "Hello World from database ï¿½ 2026-07-07T12:34:56.123Z"
 }
 ```
 
@@ -1838,10 +1838,10 @@ Ein erneuter Request soll wegen des Zeitstempels einen dynamischen Wert liefern.
 Die Startseite zeigt:
 
 ```text
-Hello World from database — 2026-07-07T12:34:56.123Z
+Hello World from database ï¿½ 2026-07-07T12:34:56.123Z
 ```
 
-Die Nachricht muss über folgenden echten Pfad kommen:
+Die Nachricht muss ï¿½ber folgenden echten Pfad kommen:
 
 ```text
 PostgreSQL
@@ -1871,7 +1871,7 @@ Keinen Teil dieses Flows faken.
 
 # 31. Akzeptanzkriterien
 
-Das Projekt gilt erst als fertig, wenn mindestens Folgendes erfüllt ist:
+Das Projekt gilt erst als fertig, wenn mindestens Folgendes erfï¿½llt ist:
 
 ## Gradle
 
@@ -1887,15 +1887,15 @@ Java Toolchain 25 wird verwendet.
 
 PostgreSQL startet erfolgreich.
 
-Healthcheck wird grün.
+Healthcheck wird grï¿½n.
 
-Flyway Migration wird erfolgreich ausgeführt.
+Flyway Migration wird erfolgreich ausgefï¿½hrt.
 
-`hello_message` enthält mindestens einen Datensatz.
+`hello_message` enthï¿½lt mindestens einen Datensatz.
 
 ## jOOQ
 
-Code Generation läuft erfolgreich.
+Code Generation lï¿½uft erfolgreich.
 
 Generierte Klassen existieren.
 
@@ -1926,10 +1926,10 @@ npm Package wird gestaged.
 Frontend importiert:
 
 ```text
-@example/shared
+@oddjobs/shared
 ```
 
-über:
+ï¿½ber:
 
 ```text
 workspace:*
@@ -1957,19 +1957,19 @@ Dynamische Nachricht wird angezeigt.
 
 ## Tests
 
-Alle relevanten Gradle Tests grün.
+Alle relevanten Gradle Tests grï¿½n.
 
-Frontend Type Check grün.
+Frontend Type Check grï¿½n.
 
-Frontend Production Build grün.
+Frontend Production Build grï¿½n.
 
 ---
 
-# 32. Tatsächliche Verifikation
+# 32. Tatsï¿½chliche Verifikation
 
-Führe die relevanten Befehle wirklich aus.
+Fï¿½hre die relevanten Befehle wirklich aus.
 
-Mindestens sinngemäß:
+Mindestens sinngemï¿½ï¿½:
 
 ```bash
 ./gradlew clean
@@ -1982,12 +1982,12 @@ pnpm --dir frontend build
 
 Passe die Reihenfolge an den real implementierten Bootstrap-Prozess an.
 
-Zusätzlich:
+Zusï¿½tzlich:
 
 1. PostgreSQL starten
 2. Backend starten
 3. REST Endpoint testen
-4. Response prüfen
+4. Response prï¿½fen
 
 Beispielsweise mit `curl`.
 
@@ -1995,36 +1995,36 @@ Falls praktikabel:
 
 5. Frontend starten oder zumindest Preview/Build verifizieren
 
-Stoppe nicht nach einem erfolgreichen Compile, wenn die End-to-End-Kette noch ungeprüft ist.
+Stoppe nicht nach einem erfolgreichen Compile, wenn die End-to-End-Kette noch ungeprï¿½ft ist.
 
 ---
 
 # 33. Abschlussbericht
 
-Nachdem das Projekt erstellt und geprüft wurde, gib einen kompakten Abschlussbericht aus.
+Nachdem das Projekt erstellt und geprï¿½ft wurde, gib einen kompakten Abschlussbericht aus.
 
-Enthalten sein müssen:
+Enthalten sein mï¿½ssen:
 
 1. erzeugte Modulstruktur
 2. verwendete Versionen
-3. ausgeführte Commands
+3. ausgefï¿½hrte Commands
 4. erfolgreiche Tests
 5. erfolgreiche Builds
 6. REST-Testresultat
 7. Pfad der generierten jOOQ-Artefakte
 8. Pfad des gestagten npm-Pakets
-9. Hinweise auf verbleibende Einschränkungen
-10. explizite Nennung, falls irgendein Akzeptanzkriterium nicht erfüllt werden konnte
+9. Hinweise auf verbleibende Einschrï¿½nkungen
+10. explizite Nennung, falls irgendein Akzeptanzkriterium nicht erfï¿½llt werden konnte
 
-Keine Erfolge behaupten, die nicht tatsächlich verifiziert wurden.
+Keine Erfolge behaupten, die nicht tatsï¿½chlich verifiziert wurden.
 
 ---
 
-# 34. Prioritäten bei Zielkonflikten
+# 34. Prioritï¿½ten bei Zielkonflikten
 
 Bei einem technischen Zielkonflikt gilt folgende Reihenfolge:
 
-1. tatsächlich lauffähiger und verifizierter Build
+1. tatsï¿½chlich lauffï¿½higer und verifizierter Build
 2. festgelegte Architekturentscheidungen
 3. keine DTO-Duplizierung
 4. gemeinsames suspend Repository Interface
@@ -2032,7 +2032,7 @@ Bei einem technischen Zielkonflikt gilt folgende Reihenfolge:
 6. korrekte Promise-/Async-Nutzung auf JS
 7. reproduzierbarer jOOQ-Codegen
 8. self-contained Developer Experience
-9. minimale Komplexität
+9. minimale Komplexitï¿½t
 10. kosmetische Perfektion
 
-Erstelle jetzt das vollständige Projekt.
+Erstelle jetzt das vollstï¿½ndige Projekt.

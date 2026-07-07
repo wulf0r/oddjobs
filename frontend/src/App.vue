@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { HelloApi, type HelloResponse } from '@example/shared'
+import { HelloApi, type HelloResponse } from '@oddjobs/shared'
 
 const api = new HelloApi('/api')
 const response = ref<HelloResponse | null>(null)

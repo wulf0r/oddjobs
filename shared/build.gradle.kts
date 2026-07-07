@@ -58,7 +58,7 @@ val writeStagedPackageJson by tasks.registering {
         file.parentFile.mkdirs()
         file.writeText(
             """{
-  "name": "@example/shared",
+  "name": "@oddjobs/shared",
   "version": "0.0.0-local",
   "private": true,
   "type": "module",
