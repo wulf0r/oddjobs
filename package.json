@@ -1,0 +1,15 @@
+{
+  "name": "oddjobs",
+  "private": true,
+  "packageManager": "pnpm@11.8.0",
+  "engines": {
+    "node": "24.18.0"
+  },
+  "scripts": {
+    "frontend:dev": "pnpm --dir frontend dev",
+    "frontend:build": "pnpm --dir frontend build",
+    "frontend:type-check": "pnpm --dir frontend type-check",
+    "shared:stage": "./gradlew :shared:stageNpmPackage",
+    "build": "pnpm --dir frontend build"
+  }
+}

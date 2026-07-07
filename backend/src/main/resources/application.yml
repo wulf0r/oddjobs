@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: oddjobs-backend
+  datasource:
+    url: ${ODDJOBS_DB_URL:jdbc:postgresql://localhost:5432/helloworld}
+    username: ${ODDJOBS_DB_USER:helloworld}
+    password: ${ODDJOBS_DB_PASSWORD:helloworld}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jooq:
+    sql-dialect: postgres
+
+server:
+  port: 8080
