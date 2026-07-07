@@ -53,9 +53,9 @@ tasks.register("stageSharedNpmPackage") {
 
 tasks.register("bootstrap") {
     group = "oddjobs"
-    description = "Start DB, migrate schema, generate jOOQ, build shared JVM/JS artifacts, and stage the shared npm package."
+    description = "Start DB, migrate schema, generate jOOQ, assemble shared JVM/JS artifacts without tests, and stage the shared npm package."
     dependsOn(":backend:jooqCodegen")
-    dependsOn(":shared:build")
+    dependsOn(":shared:assemble")
     dependsOn(":shared:stageNpmPackage")
 }
 

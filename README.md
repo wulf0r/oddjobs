@@ -68,7 +68,7 @@ Compose starts:
 - Vite on <http://localhost:9992>.
 - A plain-text combined process log on <http://localhost:9994>.
 
-The Oddjobs project directory is bind-mounted at `/workspace/oddjobs` inside the dev container. On startup the dev container waits for PostgreSQL, runs `pnpm install --frozen-lockfile`, runs Gradle bootstrap with the global `gradle` binary, then starts:
+The Oddjobs project directory is bind-mounted at `/workspace/oddjobs` inside the dev container. On startup the dev container waits for PostgreSQL, runs `pnpm install --frozen-lockfile`, runs Gradle bootstrap with the global `gradle` binary, then starts. The bootstrap task assembles shared artifacts and stages the npm package, but intentionally does not run tests:
 
 - `gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous`
 - `gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun`
