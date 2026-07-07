@@ -10,7 +10,7 @@ importers:
 
   frontend:
     dependencies:
-      '@example/shared':
+      '@oddjobs/shared':
         specifier: workspace:*
         version: link:../packages/shared
       vue:
