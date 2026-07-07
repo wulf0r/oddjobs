@@ -15,7 +15,7 @@ services:
       retries: 20
       start_period: 5s
     volumes:
-      - ./dev/postgre:/var/lib/postgresql/data
+      - ./docker/dev/postgre:/var/lib/postgresql/data
 
   dev:
     build:
@@ -39,7 +39,7 @@ services:
       SERVER_PORT: 9991
       VITE_PORT: 9992
       VITE_BACKEND_PROXY_TARGET: http://localhost:9991
-      ODDJOBS_DEV_LOG: /var/log/oddjobs/dev.log
+      ODDJOBS_DEV_LOG: /workspace/oddjobs/docker/dev/container.log
     ports:
       - "9991:9991"
       - "9992:9992"
@@ -48,10 +48,8 @@ services:
       - .:/workspace/oddjobs
       - oddjobs-gradle-home:/home/oddjobs/.gradle
       - oddjobs-corepack-home:/home/oddjobs/.cache/corepack
-      - oddjobs-dev-log:/var/log/oddjobs
     init: true
 
 volumes:
   oddjobs-gradle-home:
   oddjobs-corepack-home:
-  oddjobs-dev-log:

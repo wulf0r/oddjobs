@@ -4,6 +4,7 @@
 **/node_modules
 frontend/dist
 packages/shared/dist
-dev/postgre
+docker/dev/postgre
+docker/dev/container.log
 config/agent.log
 *.log

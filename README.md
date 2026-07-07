@@ -62,7 +62,7 @@ docker compose up --build
 
 Compose starts:
 
-- PostgreSQL `17.10-alpine` with host port `9993` and data under `./dev/postgre`.
+- PostgreSQL `17.10-alpine` with host port `9993` and data under `./docker/dev/postgre`.
 - A dev container with Java `21`, global Gradle `9.5.0`, Node `24.18.0`, and pnpm `11.8.0`.
 - Spring Boot on <http://localhost:9991>.
 - Vite on <http://localhost:9992>.
@@ -74,7 +74,7 @@ The Oddjobs project directory is bind-mounted at `/workspace/oddjobs` inside the
 - `gradle --no-daemon -Poddjobs.skipDbUp=true bootstrap :backend:bootRun`
 - `pnpm --dir frontend dev --host 0.0.0.0 --port 9992 --strictPort`
 
-All process output is appended to `/var/log/oddjobs/dev.log` inside the dev container and served as `text/plain` on port `9994`.
+All process output is appended to `./docker/dev/container.log` and served as `text/plain` on port `9994`.
 
 Stop the environment:
 
@@ -85,7 +85,7 @@ docker compose down
 Remove local database state if you need a clean DB:
 
 ```bash
-rm -rf dev/postgre
+rm -rf docker/dev/postgre
 ```
 
 Start/stop only the local DB:
