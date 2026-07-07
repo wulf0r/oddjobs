@@ -15,6 +15,9 @@ packages/shared/dist/
 .vscode/
 *.iml
 
+# Local Docker/PostgreSQL dev data
+/dev/postgre/
+
 # Logs
 config/agent.log
 *.log

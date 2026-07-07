@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: helloworld
       POSTGRES_PASSWORD: helloworld
     ports:
-      - "5432:5432"
+      - "9993:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U helloworld -d helloworld"]
       interval: 5s
@@ -15,7 +15,43 @@ services:
       retries: 20
       start_period: 5s
     volumes:
-      - oddjobs-postgres-data:/var/lib/postgresql/data
+      - ./dev/postgre:/var/lib/postgresql/data
+
+  dev:
+    build:
+      context: .
+      dockerfile: docker/dev/Dockerfile
+    container_name: oddjobs-dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+    working_dir: /workspace/oddjobs
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      GRADLE_USER_HOME: /home/oddjobs/.gradle
+      COREPACK_HOME: /home/oddjobs/.cache/corepack
+      ODDJOBS_DB_HOST: postgres
+      ODDJOBS_DB_PORT: 5432
+      ODDJOBS_DB_NAME: helloworld
+      ODDJOBS_DB_USER: helloworld
+      ODDJOBS_DB_PASSWORD: helloworld
+      ODDJOBS_DB_URL: jdbc:postgresql://postgres:5432/helloworld
+      SERVER_PORT: 9991
+      VITE_PORT: 9992
+      VITE_BACKEND_PROXY_TARGET: http://localhost:9991
+      ODDJOBS_DEV_LOG: /var/log/oddjobs/dev.log
+    ports:
+      - "9991:9991"
+      - "9992:9992"
+      - "9994:9994"
+    volumes:
+      - .:/workspace/oddjobs
+      - oddjobs-gradle-home:/home/oddjobs/.gradle
+      - oddjobs-corepack-home:/home/oddjobs/.cache/corepack
+      - oddjobs-dev-log:/var/log/oddjobs
+    init: true
 
 volumes:
-  oddjobs-postgres-data:
+  oddjobs-gradle-home:
+  oddjobs-corepack-home:
+  oddjobs-dev-log:

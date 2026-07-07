@@ -22,9 +22,15 @@ kotlin {
     }
 }
 
-val dbUrl = providers.gradleProperty("oddjobs.db.url").orElse("jdbc:postgresql://localhost:5432/helloworld")
-val dbUser = providers.gradleProperty("oddjobs.db.user").orElse("helloworld")
-val dbPassword = providers.gradleProperty("oddjobs.db.password").orElse("helloworld")
+val dbUrl = providers.gradleProperty("oddjobs.db.url")
+    .orElse(providers.environmentVariable("ODDJOBS_DB_URL"))
+    .orElse("jdbc:postgresql://localhost:9993/helloworld")
+val dbUser = providers.gradleProperty("oddjobs.db.user")
+    .orElse(providers.environmentVariable("ODDJOBS_DB_USER"))
+    .orElse("helloworld")
+val dbPassword = providers.gradleProperty("oddjobs.db.password")
+    .orElse(providers.environmentVariable("ODDJOBS_DB_PASSWORD"))
+    .orElse("helloworld")
 val generatedJooqDir = layout.buildDirectory.dir("generated-src/jooq/main")
 
 sourceSets {
@@ -35,6 +41,7 @@ sourceSets {
 
 dependencies {
     implementation(platform("org.springframework.boot:spring-boot-dependencies:${libs.versions.spring.boot.get()}"))
+    developmentOnly(platform("org.springframework.boot:spring-boot-dependencies:${libs.versions.spring.boot.get()}"))
     testImplementation(platform("org.springframework.boot:spring-boot-dependencies:${libs.versions.spring.boot.get()}"))
 
     implementation(project(":shared"))
@@ -47,6 +54,7 @@ dependencies {
     implementation(libs.coroutines.reactor)
     implementation(libs.jooq)
     implementation(libs.flyway.postgresql)
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly(libs.postgresql) {
         version { strictly(libs.versions.postgresql.jdbc.get()) }
     }

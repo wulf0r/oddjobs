@@ -23,6 +23,10 @@ allprojects {
     version = "0.0.0-local"
 }
 
+val skipDbUp = providers.gradleProperty("oddjobs.skipDbUp")
+    .map(String::toBoolean)
+    .orElse(false)
+
 tasks.register<Exec>("dbUp") {
     group = "oddjobs"
     description = "Start the local PostgreSQL database and wait until the healthcheck is green."
@@ -56,7 +60,9 @@ tasks.register("bootstrap") {
 }
 
 gradle.projectsEvaluated {
-    project(":backend").tasks.named("flywayMigrate") {
-        dependsOn(rootProject.tasks.named("dbUp"))
+    if (!skipDbUp.get()) {
+        project(":backend").tasks.named("flywayMigrate") {
+            dependsOn(rootProject.tasks.named("dbUp"))
+        }
     }
 }

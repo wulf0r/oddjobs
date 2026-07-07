@@ -1,0 +1,9 @@
+.git
+.gradle
+**/build
+**/node_modules
+frontend/dist
+packages/shared/dist
+dev/postgre
+config/agent.log
+*.log
