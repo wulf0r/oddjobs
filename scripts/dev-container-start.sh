@@ -56,25 +56,25 @@ log "serving combined dev log on port 9994 from ${LOG_FILE}"
 wait_for_postgres
 
 log "installing pnpm workspace dependencies"
-if ! pnpm install --frozen-lockfile >> "$LOG_FILE" 2>&1; then
+if ! pnpm install --frozen-lockfile -force >> "$LOG_FILE" 2>&1; then
   log "pnpm install failed; keeping log server alive for inspection"
   wait "$LOG_SERVER_PID"
 fi
 
 log "running one-time Gradle bootstrap with global Gradle $(gradle --version | sed -n '3p')"
-if ! gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/bootstrap" -Poddjobs.skipDbUp=true bootstrap >> "$LOG_FILE" 2>&1; then
+if ! gradle --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/bootstrap" -Poddjobs.skipDbUp=true bootstrap >> "$LOG_FILE" 2>&1; then
   log "Gradle bootstrap failed; keeping log server alive for inspection"
   wait "$LOG_SERVER_PID"
 fi
 
-run_logged COMPILE_PID "gradle-continuous-compile-processresources" \
-  gradle --no-daemon -Poddjobs.skipDbUp=true :backend:compileKotlin :backend:processResources --continuous
+run_logged COMPILE_PID "gradle-continuous-classess" \
+  gradle -Poddjobs.skipDbUp=true :shared:stageNpmPackage :backend:classes --continuous
 
 log "Waiting for background build to start ..."
 sleep 15s
 
 run_logged BOOT_PID "gradle-bootstrap-bootRun" \
-  gradle --no-daemon --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/boot" -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
+  gradle --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/boot" -Poddjobs.skipDbUp=true bootstrap :backend:bootRun
 
 
 run_logged FRONTEND_PID "pnpm-frontend-dev" \

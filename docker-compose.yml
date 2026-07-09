@@ -48,6 +48,10 @@ services:
       - .:/workspace/oddjobs
       - oddjobs-gradle-home:/home/oddjobs/.gradle
       - oddjobs-corepack-home:/home/oddjobs/.cache/corepack
+      - oddjobs-frontend-nodeModules:/home/oddjobs/frontend/node_modules
+      - oddjobs-nodeModules:/home/oddjobs/node_modules
+      #- oddjobs-backend-build:/home/oddjobs/backend/build
+      - oddjobs-shared-build:/home/oddjobs/shared/build
     tmpfs:
       - /workspace/oddjobs/.gradle:uid=1000,gid=1000,mode=0775
     init: true
@@ -56,3 +60,7 @@ volumes:
   oddjobs-postgres-data:
   oddjobs-gradle-home:
   oddjobs-corepack-home:
+  oddjobs-frontend-nodeModules:
+  oddjobs-nodeModules:
+  oddjobs-backend-build:
+  oddjobs-shared-build:

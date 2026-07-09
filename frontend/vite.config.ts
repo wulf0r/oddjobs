@@ -8,9 +8,12 @@ export default defineConfig({
     port: Number(process.env.VITE_PORT ?? 5173),
     proxy: {
       '/api': {
-        target: process.env.VITE_BACKEND_PROXY_TARGET ?? 'http://localhost:8080',
+        target: process.env.VITE_BACKEND_PROXY_TARGET ?? 'http://localhost:9991',
         changeOrigin: true
       }
+    },
+    watch: {
+      usePolling: true
     }
   }
 })

@@ -27,9 +27,6 @@ kotlin {
             binaries.library()
         }
         generateTypeScriptDefinitions()
-        compilerOptions {
-            freeCompilerArgs.add("-Xenable-suspend-function-exporting")
-        }
     }
 
     sourceSets {

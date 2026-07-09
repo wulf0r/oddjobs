@@ -11,5 +11,8 @@
     "frontend:type-check": "pnpm --dir frontend type-check",
     "shared:stage": "./gradlew :shared:stageNpmPackage",
     "build": "pnpm --dir frontend build"
+  },
+  "dependencies": {
+    "vue-router": "^5.1.0"
   }
 }
