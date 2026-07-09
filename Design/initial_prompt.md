@@ -800,7 +800,7 @@ Keine Produktionsgeheimnisse vort�uschen.
 Lege mindestens an:
 
 ```text
-backend/src/main/resources/db/migration/V001__create_hello_message.sql
+backend/src/main/resources/db/migration/V001__initial_schema.sql
 ```
 
 Migration:

@@ -166,7 +166,7 @@ Flyway migration SQL
 
 Important paths:
 
-- Migration: `backend/src/main/resources/db/migration/V001__create_hello_message.sql`
+- Migration: `backend/src/main/resources/db/migration/V001__initial_schema.sql`
 - Generated jOOQ sources: `backend/build/generated-src/jooq/main`
 - Generated package: `com.oddjobs.backend.generated.jooq`
 

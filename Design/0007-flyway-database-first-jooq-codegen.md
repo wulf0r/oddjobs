@@ -17,7 +17,7 @@ DB Schema
 jOOQ Codegen
 ```
 
-`V001__create_hello_message.sql` erstellt `hello_message` und seedet einen Datensatz. `jooqCodegen` hängt von `flywayMigrate` ab und generiert Kotlin-Artefakte unter `backend/build/generated-src/jooq/main` im Package `com.oddjobs.backend.generated.jooq`.
+`V001__initial_schema.sql` ersteltl Das basis schema und seedet einen Datensatz. `jooqCodegen` hängt von `flywayMigrate` ab und generiert Kotlin-Artefakte unter `backend/build/generated-src/jooq/main` im Package `com.oddjobs.backend.generated.jooq`.
 
 ## Konsequenzen
 ### Positive Konsequenzen

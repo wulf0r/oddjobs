@@ -93,7 +93,7 @@ jooq {
             database {
                 name = "org.jooq.meta.postgres.PostgresDatabase"
                 inputSchema = "public"
-                includes = "hello_message"
+                //includes = "hello_message"
             }
             generate {
                 isDaos = false
