@@ -123,3 +123,24 @@ tasks.withType<Test>().configureEach {
 tasks.named("compileKotlin") {
     dependsOn("jooqCodegen")
 }
+
+tasks.register("devReload") {
+    dependsOn("classes")
+
+    doLast {
+        val triggerFile = layout.buildDirectory
+            .file("resources/main/.reloadtrigger")
+            .get()
+            .asFile
+
+        triggerFile.parentFile.mkdirs()
+
+        triggerFile.writeText(
+            System.currentTimeMillis().toString()
+        )
+
+        println(
+            "Updated DevTools trigger: ${triggerFile.absolutePath}"
+        )
+    }
+}

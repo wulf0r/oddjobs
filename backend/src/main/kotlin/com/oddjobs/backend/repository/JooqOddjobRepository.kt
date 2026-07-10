@@ -2,10 +2,11 @@ package com.oddjobs.backend.repository
 
 import com.oddjobs.backend.generated.jooq.tables.references.ODDJOB
 import com.oddjobs.shared.dto.CreateOddjobRequest
+import com.oddjobs.shared.dto.ListOddjobResponse
+import com.oddjobs.shared.dto.OddjobListItem
 import com.oddjobs.shared.repository.OddjobRepository
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
-import org.springframework.web.bind.annotation.RequestBody
 
 // suspend is only there for JS. Don't use these repo methods async
 @Suppress("BlockingMethodInNonBlockingContext")
@@ -18,5 +19,11 @@ class JooqOddjobRepository(
             .columns(ODDJOB.DISPLAY_NAME, ODDJOB.PROMPT)
             .values(request.name, request.prompt)
             .execute()
+    }
+
+    override suspend fun listOddJobs(): ListOddjobResponse {
+        dsl.select(ODDJOB.DISPLAY_NAME.`as`("name"), ODDJOB.PROMPT).from(ODDJOB).fetchInto(OddjobListItem::class.java).let {
+            return ListOddjobResponse(items = it.toTypedArray())
+        }
     }
 }

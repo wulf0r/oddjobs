@@ -3,6 +3,7 @@ package com.oddjobs.shared.repository
 import com.oddjobs.shared.ApiUrls
 import com.oddjobs.shared.dto.CreateOddjobRequest
 import com.oddjobs.shared.dto.HelloResponse
+import com.oddjobs.shared.dto.ListOddjobResponse
 import com.oddjobs.shared.serialization.ApiJson
 import kotlinx.browser.window
 import kotlinx.coroutines.await
@@ -28,6 +29,16 @@ class HttpOddjobRepository(
             error("POST $endpoint failed with HTTP ${response.status}")
         }
 
+    }
+
+    override suspend fun listOddJobs(): ListOddjobResponse {
+        val endpoint = ApiUrls.OddjobController.LIST_URL
+        val response = window.fetch(endpoint).await()
+
+        if (!response.ok) {
+            error("GET $endpoint failed with HTTP ${response.status}")
+        }
+        return ApiJson.instance.decodeFromString(response.text().await())
     }
 }
 

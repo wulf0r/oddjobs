@@ -68,7 +68,7 @@ if ! gradle --project-cache-dir "$GRADLE_PROJECT_CACHE_ROOT/bootstrap" -Poddjobs
 fi
 
 run_logged COMPILE_PID "gradle-continuous-classess" \
-  gradle -Poddjobs.skipDbUp=true :shared:stageNpmPackage :backend:classes --continuous
+  gradle -Poddjobs.skipDbUp=true :shared:stageNpmPackage :backend:devReload --continuous
 
 log "Waiting for background build to start ..."
 sleep 15s
