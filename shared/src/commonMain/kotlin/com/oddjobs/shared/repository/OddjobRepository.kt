@@ -1,6 +1,6 @@
 package com.oddjobs.shared.repository
 
-import com.oddjobs.shared.dto.CreateOddjobRequest
+import com.oddjobs.shared.dto.SaveOddjobRequest
 import com.oddjobs.shared.dto.ListOddjobResponse
 import kotlin.js.ExperimentalJsExport
 import kotlin.js.JsExport
@@ -10,7 +10,7 @@ import kotlin.js.JsExport
 @JsExport
 interface OddjobRepository {
 
-    suspend fun createOddJob(request: CreateOddjobRequest)
+    suspend fun createOddJob(request: SaveOddjobRequest)
     //suspend fun getOddjob(id: Long): Odd
 
     suspend fun listOddJobs() : ListOddjobResponse

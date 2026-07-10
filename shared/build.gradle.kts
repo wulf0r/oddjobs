@@ -23,6 +23,9 @@ kotlin {
     js {
         outputModuleName = "shared"
         useEsModules()
+        compilerOptions {
+            freeCompilerArgs.add("-Xes-long-as-bigint")
+        }
         browser {
             binaries.library()
         }

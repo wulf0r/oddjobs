@@ -8,7 +8,8 @@ import kotlin.js.JsExport
 
 @Serializable
 @JsExport
-data class CreateOddjobRequest(
+data class SaveOddjobRequest(
+    var id : Long?,
     var name : String,
     var prompt : String
 )

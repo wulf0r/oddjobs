@@ -1,7 +1,7 @@
 package com.oddjobs.backend.repository
 
 import com.oddjobs.backend.generated.jooq.tables.references.ODDJOB
-import com.oddjobs.shared.dto.CreateOddjobRequest
+import com.oddjobs.shared.dto.SaveOddjobRequest
 import com.oddjobs.shared.dto.ListOddjobResponse
 import com.oddjobs.shared.dto.OddjobListItem
 import com.oddjobs.shared.repository.OddjobRepository
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository
 class JooqOddjobRepository(
     private val dsl: DSLContext
 ) : OddjobRepository {
-    override suspend fun createOddJob( request: CreateOddjobRequest) {
+    override suspend fun createOddJob( request: SaveOddjobRequest) {
         dsl.insertInto(ODDJOB)
             .columns(ODDJOB.DISPLAY_NAME, ODDJOB.PROMPT)
             .values(request.name, request.prompt)

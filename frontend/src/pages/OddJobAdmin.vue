@@ -1,12 +1,23 @@
 <script setup lang="ts">
-import { HttpOddjobRepository, CreateOddjobRequest } from '@oddjobs/shared'
-import { reactive, ref, toRaw, onMounted } from 'vue'
+import { HttpOddjobRepository, SaveOddjobRequest } from '@oddjobs/shared'
+import { reactive, ref, toRaw, onMounted, computed } from 'vue'
 var test = ref(0)
 
 
 const oddjobs = ref<Oddjob[]>([])
 const loading = ref(false)
 
+const form = reactive(
+  new SaveOddjobRequest(
+    null,
+    '',
+    ''
+  )
+)
+
+const buttonLabel = computed(() =>
+    "Save"
+)
 async function loadOddjobs() {
     loading.value = true
     try {
@@ -23,12 +34,7 @@ onMounted(async () => {
 })
 
 
-const form = reactive(
-  new CreateOddjobRequest(
-    '',
-    ''
-  )
-)
+
 
 async function submitForm() {
     await new HttpOddjobRepository().createOddJob(toRaw(form))
@@ -54,7 +60,7 @@ async function submitForm() {
     </div>
 
      <button class="ui button" type="submit">
-          Create
+          {{buttonLabel}}
     </button>
 
     </form>

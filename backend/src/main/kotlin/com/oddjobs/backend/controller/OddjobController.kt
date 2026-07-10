@@ -1,7 +1,7 @@
 package com.oddjobs.backend.controller
 
 import com.oddjobs.shared.ApiUrls
-import com.oddjobs.shared.dto.CreateOddjobRequest
+import com.oddjobs.shared.dto.SaveOddjobRequest
 import com.oddjobs.shared.repository.OddjobRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,7 +14,7 @@ class OddjobController(
     private val oddjobRepository: OddjobRepository
 ) {
     @PostMapping(ApiUrls.OddjobController.BASE_URL)
-    suspend fun createOddjobRequest(@RequestBody oddjobRequest: CreateOddjobRequest) {
+    suspend fun createOddjobRequest(@RequestBody oddjobRequest: SaveOddjobRequest) {
         oddjobRepository.createOddJob(oddjobRequest)
     }
 
